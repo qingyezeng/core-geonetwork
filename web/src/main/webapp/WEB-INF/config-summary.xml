@@ -114,14 +114,14 @@
 
     Do not forget to add classifier configuration on config-spring-geonetwork.xml
 
-    Then add facet in one summaryType having format="DIMENSION" attribute.
+    Then add facet in one summaryType having format="DIMENSION" attribute.         -->
     <facet name="region" label="regions"
            indexKey="keyword"
            classifier="regionKeywordClassifier"/>
     <facet name="gemetKeyword" label="gemetKeywords"
            indexKey="keyword"
            classifier="gemetKeywordClassifier"/>
-         -->
+
 
     <facet name="maintenanceAndUpdateFrequency" indexKey="cl_maintenanceAndUpdateFrequency"
            label="maintenanceAndUpdateFrequencies"/>
@@ -149,7 +149,7 @@
       <item facet="serviceType"/>
       <item facet="denominator" sortBy="numValue" sortOrder="desc"/>
       <item facet="resolution" sortBy="numValue" sortOrder="desc"/>
-      <!--
+      <!-- Richard: hierarchical search  -->
       <item facet="region"
             translator="term:http://geonetwork-opensource.org/thesaurus/naturalearth-and-seavox"/>
       <item facet="gemetKeyword"
@@ -239,6 +239,12 @@
       <item facet="serviceType"/>
       <item facet="type" translator="codelist:gmd:MD_ScopeCode"/>
       <item facet="createDateYear" sortOrder="asc"/>
+    </summaryType>
+
+    <!-- Richard: for hierarchy faceted search-->
+    <summaryType name="hierarchy" format="DIMENSION">
+      <item facet="region"  max="10" depth="5" translator="term:http://geonetwork-opensource.org/regions"/>
+      <item facet="gemetKeyword" max="10" depth="5" translator="term:http://geonetwork-opensource.org/gemet"/>
     </summaryType>
   </summaryTypes>
 
