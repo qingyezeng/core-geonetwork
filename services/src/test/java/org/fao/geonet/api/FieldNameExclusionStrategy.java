@@ -20,28 +20,31 @@
  * Contact: Jeroen Ticheler - FAO - Viale delle Terme di Caracalla 2,
  * Rome - Italy. email: geonetwork@osgeo.org
  */
+package org.fao.geonet.api;
 
-package org.fao.geonet.repository;
-
-import org.fao.geonet.domain.MetadataValidation;
-import org.fao.geonet.domain.MetadataValidationId;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import com.google.common.collect.Lists;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 
 import java.util.List;
 
 /**
- * Data Access object for accessing {@link org.fao.geonet.domain.MetadataValidation} entities.
- *
- * @author Jesse
+ * Created by juanl on 06/09/2016.
  */
-public interface MetadataValidationRepository extends GeonetRepository<MetadataValidation, MetadataValidationId>,
-        MetadataValidationRepositoryCustom, JpaSpecificationExecutor<MetadataValidation> {
-    /**
-     * Find all validation entities related to the metadata identified by metadataId.
-     *
-     * @param metadataId the id of the metadata.
-     * @return the list of MetadataValidation objects related to the metadata identified
-     */
-    List<MetadataValidation> findAllById_MetadataId(int metadataId);
+public class FieldNameExclusionStrategy implements ExclusionStrategy {
+    private List<String> excludedFields;
 
+    public FieldNameExclusionStrategy(String... fieldNames) {
+        excludedFields = Lists.asList("", fieldNames);
+    }
+
+    @Override
+    public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+        return excludedFields.indexOf(fieldAttributes.getName()) != -1;
+    }
+
+    @Override
+    public boolean shouldSkipClass(Class<?> aClass) {
+        return false;
+    }
 }
