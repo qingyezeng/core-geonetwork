@@ -2,21 +2,21 @@
                         xmlns:ows="http://www.opengis.net/ows"
                         version="0.3.1" id="ows-context-ex-1-v3">
   <ows-context:General>
-    <ows:BoundingBox crs="EPSG:3857">
-      <ows:LowerCorner>-8604130.477526832 -320097.07393612247</ows:LowerCorner>
-      <ows:UpperCorner>8948257.201654762 8720263.135408245</ows:UpperCorner>
-    </ows:BoundingBox>
+      <ows:BoundingBox xmlns:ows="http://www.opengis.net/ows" crs="EPSG:3857">
+          <ows:LowerCorner>-9677845.025242735 5007848.345131607</ows:LowerCorner>
+          <ows:UpperCorner>-8888403.397113435 5377803.56203186</ows:UpperCorner>
+      </ows:BoundingBox>
   </ows-context:General>
   <ows-context:ResourceList>
     <ows-context:Layer name="{type=mapquest}"
                        group="Background layers"
-                       hidden="false"
+                       hidden="true"
                        opacity="1">
       <ows:Title>MapQuest</ows:Title>
     </ows-context:Layer>
     <ows-context:Layer name="{type=osm}"
                        group="Background layers"
-                       hidden="true"
+                       hidden="false"
                        opacity="1">
       <ows:Title>OpenStreetMap
       </ows:Title>

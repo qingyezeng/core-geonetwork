@@ -61,14 +61,17 @@
              * Define maps
              */
           var mapsConfig = {
-            center: [280274.03240585705, 6053178.654789996],
-            zoom: 2
+            center: [-9277845.025242735 5157848.345131607],
+            zoom: 4
             //maxResolution: 9783.93962050256
           };
 
           var viewerMap = new ol.Map({
             controls: [],
-            view: new ol.View(mapsConfig)
+            view: new ol.View({
+              center : [-9251326.407411, 5207807.611126],
+              zoom : 4              
+            })
           });
 
           var searchMap = new ol.Map({
@@ -78,7 +81,7 @@
             })],
             view: new ol.View({
               center: mapsConfig.center,
-              zoom: 2
+              zoom: 4
             })
           });
 
